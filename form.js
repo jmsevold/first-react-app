@@ -29,6 +29,7 @@ class Form extends React.Component{
         <input type="text" ref="firstName" />
         <input type="text" ref="lastName" />
         <button onClick={this.handleSubmit}> Submit</button>
+        <List />
       </div>
     ); 
   }
@@ -37,7 +38,11 @@ class Form extends React.Component{
 
 
 var List = (props) =>{
-  
+  return(
+      <ul>
+        <li>hi</li>
+      </ul>
+    ); 
 }
 
 export default Form
