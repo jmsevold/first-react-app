@@ -15,7 +15,7 @@ class Form extends React.Component{
     let person = {firstName: firstName, lastName: lastName};
     this.refs.firstName.value = "";
     this.refs.lastName.value = "";
-    this.state.names.push(person,person);
+    this.state.names.push(person);
     this.setState({
       names: this.state.names
     });
@@ -29,7 +29,7 @@ class Form extends React.Component{
         <input type="text" ref="firstName" />
         <input type="text" ref="lastName" />
         <button onClick={this.handleSubmit}> Submit</button>
-        <List />
+        <List people={this.state.names}/>
       </div>
     ); 
   }
@@ -38,9 +38,15 @@ class Form extends React.Component{
 
 
 var List = (props) =>{
+  let names = props.people.map((person)=>{
+    return(
+      <li key={Math.random()}>{person.firstName} {person.lastName} is a great guy</li>
+    );
+  });
+
   return(
       <ul>
-        <li>hi</li>
+        {names}
       </ul>
     ); 
 }
