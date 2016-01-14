@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import List from './list';
 
 class Form extends React.Component {
   constructor(){
@@ -8,6 +9,7 @@ class Form extends React.Component {
       names: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.removePerson = this.removePerson.bind(this);
   }
 
  handleSubmit(){
@@ -23,40 +25,22 @@ class Form extends React.Component {
     console.log(person);
   }
 
+  removePerson(id){
+    let newState = delete this.state.names[id];
+    this.setState({names: newState});
+  }
+
   render(){
     return(
       <div>
         <input type="text" ref="firstName" />
         <input type="text" ref="lastName" />
         <button onClick={this.handleSubmit}> Submit</button>
-        <List people={this.state.names}/>
+        <List people={this.state.names} removePerson={this.removePerson}/>
       </div>
     ); 
   }
 }
-
-
-const List = (props) =>{
-
-  // unmount(){
-
-  // }
-  let names = props.people.map((person,index)=>{
-    return(
-      <div>
-        <li key={index}>yeah{person.firstName} {person.lastName}</li>
-        <button>remove</button>
-      </div>
-    );
-  });
-
-  return(
-      <ul>
-        {names}
-      </ul>
-  ); 
-}
-
 
 
 
