@@ -29,40 +29,30 @@ class Form extends React.Component {
         <input type="text" ref="firstName" />
         <input type="text" ref="lastName" />
         <button onClick={this.handleSubmit}> Submit</button>
-        <List/>
+        <List people={this.state.names}/>
       </div>
     ); 
   }
 }
 
 
-var List = (props) => {
-  // constructor(){
-  //   super();
-  // }
-
+var List = (props) =>{
+  
   // unmount(){
-  //   ReactDOM.unmountComponentAtNode('person');
+
   // }
- 
-  render(){
-    let names = props.people.map((person)=>{
+  let names = props.people.map((person)=>{
     return(
-      <div id="person">
-        <li> {person.firstName} {person.lastName} is a great guy</li>
-        <button>remove</button>
-      </div>
+      <li key={Math.random()}>{person.firstName} {person.lastName}</li>
     );
-  }
+  });
 
   return(
-    <ul>
-      {names}
-    </ul>
-  );
-
+      <ul>
+        {names}
+      </ul>
+  ); 
 }
-
 
 
 
