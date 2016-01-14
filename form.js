@@ -36,14 +36,17 @@ class Form extends React.Component {
 }
 
 
-var List = (props) =>{
-  
+const List = (props) =>{
+
   // unmount(){
 
   // }
-  let names = props.people.map((person)=>{
+  let names = props.people.map((person,index)=>{
     return(
-      <li key={Math.random()}>{person.firstName} {person.lastName}</li>
+      <div>
+        <li key={index}>yeah{person.firstName} {person.lastName}</li>
+        <button>remove</button>
+      </div>
     );
   });
 
