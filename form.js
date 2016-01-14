@@ -25,8 +25,8 @@ class Form extends React.Component {
     console.log(person);
   }
 
-  removePerson(id){
-    let newState = delete this.state.names[id];
+  removePerson(index){
+    let newState = this.state.names.splice(index,1);
     this.setState({names: newState});
   }
 

@@ -5,7 +5,7 @@ class List extends React.Component{
     let names = this.props.people.map((person,index)=>{
       return(
         <div key={index}>
-          <li>{person.firstName} {person.lastName}</li>
+          <li >{person.firstName} {person.lastName}</li>
           <button onClick={this.props.removePerson(index)}>remove</button>
         </div>
       );
