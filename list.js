@@ -6,7 +6,7 @@ class List extends React.Component{
       return(
         <div key={index}>
           <li >{person.firstName} {person.lastName}</li>
-          <button onClick={this.props.removePerson(index)}>remove</button>
+          <button onClick={this.props.removePerson.bind(null,index)}>remove</button>
         </div>
       );
     });

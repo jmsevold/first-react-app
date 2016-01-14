@@ -26,8 +26,10 @@ class Form extends React.Component {
   }
 
   removePerson(index){
-    let newState = this.state.names.splice(index,1);
+    let newState = this.state.names;
+    newState.splice(index,1);
     this.setState({names: newState});
+    console.log(index);
   }
 
   render(){
