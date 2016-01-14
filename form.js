@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class Form extends React.Component{
   constructor(){
@@ -19,6 +20,7 @@ class Form extends React.Component{
     this.setState({
       names: this.state.names
     });
+    console.log(person);
 
 
   }
@@ -38,9 +40,16 @@ class Form extends React.Component{
 
 
 var List = (props) =>{
+  unmount(){
+    ReactDOM.unmountComponentAtNode('person');
+  }
+
   let names = props.people.map((person)=>{
     return(
-      <li key={Math.random()}>{person.firstName} {person.lastName} is a great guy</li>
+      <div id="person">
+        <li> {person.firstName} {person.lastName} is a great guy</li>
+        <button onClick={this.unmount}>remove</button>
+      </div>
     );
   });
 
